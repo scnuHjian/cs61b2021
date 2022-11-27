@@ -69,6 +69,9 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T removeFirst() {
+        if (isEmpty()){
+            return null;
+        }
         if (size < capacity / 4){
             resize(capacity / 2);
         }
@@ -81,6 +84,9 @@ public class ArrayDeque<T> implements Deque<T>{
 
     @Override
     public T removeLast() {
+        if (isEmpty()){
+            return null;
+        }
         if (size < capacity / 4){
             resize(capacity / 2);
         }
