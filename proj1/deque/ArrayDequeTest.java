@@ -2,6 +2,8 @@ package deque;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
 
 public class ArrayDequeTest {
@@ -55,18 +57,22 @@ public class ArrayDequeTest {
     @Test
     public void addFirstTest(){
         ArrayDeque<Integer> dq = new ArrayDeque<>();
-        for (int i = 0; i < 16; i++) {
-            dq.addFirst(i);
+        Random random = new Random();
+        for (int i = 0; i < 100; i++) {
+            int m = Math.abs(random.nextInt(0,10000));
+            for (int j = 0; j < m; j++) {
+                dq.addFirst(random.nextInt());
+            }
+            int n = Math.abs(random.nextInt(0,10000));
+            for (int j = 0; j < n; j++) {
+                dq.addLast(random.nextInt());
+            }
+            int k = Math.abs(random.nextInt(0,10000));
+            for (int j = 0; j < k; j++) {
+                dq.removeFirst();
+            }
+            System.out.println();
         }
-        for (int i = 0; i < 12; i++) {
-            dq.removeFirst();
-        }
-
-        for (int i = 0; i < 16; i++) {
-            dq.addFirst(i);
-        }
-        dq.removeFirst();
-        dq.printDeque();
     }
 
     public static void main(String[] args) {
