@@ -52,4 +52,12 @@ public class ArrayDequeTest {
         assertEquals(2, dq.size());
         dq.printDeque();
     }
+    @Test
+    public void addFirstTest(){
+        ArrayDeque<Integer> dq = new ArrayDeque<>();
+        for (int i = 0; i < 16; i++) {
+            dq.addFirst(i);
+        }
+        dq.printDeque();
+    }
 }

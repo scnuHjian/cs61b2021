@@ -30,11 +30,11 @@ public class ArrayDeque<T> implements Deque<T>{
     private void resize(int capacity) {
         T[] temp = (T[]) new Object[capacity];
         for (int i = 0; i < size; i++) {
-            temp[i] = item[head];
-            item[head++] = null;
+            temp[i] = item[head++];
         }
         head = 0;
         tail = size;
+        this.capacity = capacity;
         item = temp;
     }
 
