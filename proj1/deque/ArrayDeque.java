@@ -31,6 +31,7 @@ public class ArrayDeque<T> implements Deque<T>{
         T[] temp = (T[]) new Object[capacity];
         for (int i = 0; i < size; i++) {
             temp[i] = item[head++];
+            head %= capacity;
         }
         head = 0;
         tail = size;
