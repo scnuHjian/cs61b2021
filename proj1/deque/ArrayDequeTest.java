@@ -58,6 +58,18 @@ public class ArrayDequeTest {
         for (int i = 0; i < 16; i++) {
             dq.addFirst(i);
         }
+        for (int i = 0; i < 12; i++) {
+            dq.removeFirst();
+        }
+
+        for (int i = 0; i < 16; i++) {
+            dq.addFirst(i);
+        }
+        dq.removeFirst();
         dq.printDeque();
+    }
+
+    public static void main(String[] args) {
+
     }
 }

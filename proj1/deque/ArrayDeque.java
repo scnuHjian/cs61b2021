@@ -31,7 +31,7 @@ public class ArrayDeque<T> implements Deque<T>{
         T[] temp = (T[]) new Object[capacity];
         for (int i = 0; i < size; i++) {
             temp[i] = item[head++];
-            head %= capacity;
+            head %= this.capacity;
         }
         head = 0;
         tail = size;
@@ -73,7 +73,7 @@ public class ArrayDeque<T> implements Deque<T>{
         if (isEmpty()){
             return null;
         }
-        if (size < capacity / 4){
+        if (size <= capacity / 4){
             resize(capacity / 2);
         }
         T res = item[head];
