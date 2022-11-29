@@ -1,6 +1,8 @@
 package deque;
 
-public class ArrayDeque<T> implements Deque<T>{
+import java.util.Iterator;
+
+public class ArrayDeque<T> implements Deque<T>,Iterable<T>{
 
     private int size;
     private int capacity;
@@ -15,6 +17,7 @@ public class ArrayDeque<T> implements Deque<T>{
         this.tail = 0;
         this.item = (T[]) new Object[capacity];
     }
+
 
     @Override
     public void addFirst(T item) {
@@ -106,5 +109,24 @@ public class ArrayDeque<T> implements Deque<T>{
         }
         int cur = (head + index + capacity) % capacity;
         return item[cur];
+    }
+
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<>() {
+            private int cur = 0;
+            @Override
+            public boolean hasNext() {
+                return cur < size;
+            }
+
+            @Override
+            public T next() {
+                cur++;
+                return get(cur);
+            }
+        };
     }
 }
