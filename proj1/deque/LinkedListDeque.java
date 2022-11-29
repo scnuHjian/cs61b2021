@@ -141,5 +141,16 @@ public class LinkedListDeque<T> implements Deque<T>{
             this.next = next;
         }
     }
-
+    @Override
+    public boolean equals(Deque deque) {
+        if (size != deque.size()){
+            return false;
+        }
+        for (int i = 0; i < size; i++) {
+            if (get(i) != deque.get(i)){
+                return false;
+            }
+        }
+        return true;
+    }
 }

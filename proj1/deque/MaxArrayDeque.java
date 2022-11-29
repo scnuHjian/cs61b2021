@@ -2,6 +2,7 @@ package deque;
 
 
 import java.util.Comparator;
+import java.util.Iterator;
 
 public class MaxArrayDeque<T> implements Deque<T>{
     private Comparator<T> comparator;
@@ -76,5 +77,15 @@ public class MaxArrayDeque<T> implements Deque<T>{
     @Override
     public T get(int index) {
         return arrayDeque.get(index);
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return arrayDeque.iterator();
+    }
+
+    @Override
+    public boolean equals(Deque deque) {
+        return arrayDeque.equals(deque);
     }
 }
